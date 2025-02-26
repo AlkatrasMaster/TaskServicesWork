@@ -1,4 +1,5 @@
 package org.example.domains;
 
-public class sfdsd {
+public enum ghjfghjg {
+
 }
