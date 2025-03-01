@@ -66,9 +66,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(Long id) {
-        return findByIdOrElseThrow(id);
+    public Optional<User> findById(Long id) {
+        return Optional.empty();
     }
+
 
     @Override
     public List<User> findAll() {

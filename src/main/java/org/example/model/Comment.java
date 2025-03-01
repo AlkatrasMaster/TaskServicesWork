@@ -26,7 +26,7 @@ public class Comment {
 
     @NotBlank(message = "Текст комментария не должен быть пустым")
     @Size(max = 2000, message = "Текст комментария не должен превышать 2000 символов")
-    private String name;
+    private String text;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

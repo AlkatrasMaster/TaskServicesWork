@@ -40,6 +40,7 @@ public class User implements UserDetails {
     @Size(min = 8, message = "Пароль должен содержать минимум 8 символов")
     private String password;
 
+    @Column(unique = true)
     @Email(message = "Неверный формат email")
     @NotBlank(message = "Email не может быть пустым")
     private String email;
@@ -71,6 +72,10 @@ public class User implements UserDetails {
     }
 
 
+    @Override
+    public String getUsername() {
+        return email;
+    }
 
     @Override
     public boolean isAccountNonExpired() {
