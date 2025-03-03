@@ -1,6 +1,8 @@
 package org.example.service;
 
-import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.controller.TaskController;
 import org.example.dto.CommentDTO;
 import org.example.exception.CommentNotFoundException;
 import org.example.exception.TaskNotFoundException;
@@ -30,8 +32,9 @@ import java.util.List;
  */
 
 @Service
-@Slf4j
 public class CommentServiceImp implements CommentService {
+
+    private static final Logger log = LogManager.getLogger(CommentServiceImp.class);
     private final CommentRepository commentRepository;
     private final TaskService taskService;
     private final UserService userService;

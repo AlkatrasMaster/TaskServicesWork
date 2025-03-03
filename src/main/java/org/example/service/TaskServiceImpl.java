@@ -10,7 +10,6 @@ import org.example.model.User;
 import org.example.repository.TaskRepository;
 import org.example.service.implementations.TaskService;
 import org.example.service.implementations.UserService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

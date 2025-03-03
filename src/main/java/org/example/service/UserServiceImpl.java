@@ -1,6 +1,8 @@
 package org.example.service;
 
-import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.controller.TaskController;
 import org.example.domains.enums.Role;
 import org.example.dto.UserDTO;
 import org.example.exception.UserAlreadyExistsException;
@@ -16,8 +18,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Slf4j
 public class UserServiceImpl implements UserService {
+
+    private static final Logger log = LogManager.getLogger(UserServiceImpl.class);
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;

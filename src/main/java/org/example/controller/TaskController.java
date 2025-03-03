@@ -1,7 +1,8 @@
 package org.example.controller;
 
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.dto.TaskDTO;
 import org.example.dto.UserDTO;
 import org.example.exception.TaskNotFoundException;
@@ -52,8 +53,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/tasks")
 @PreAuthorize("authenticated")
-@Slf4j
 public class TaskController {
+    private static final Logger log = LogManager.getLogger(TaskController.class);
     private final TaskService taskService;
 
     @Autowired

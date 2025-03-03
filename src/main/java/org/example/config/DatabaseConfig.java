@@ -2,6 +2,7 @@ package org.example.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
+import java.util.Map;
 
 
 /**
@@ -80,5 +82,20 @@ public class DatabaseConfig {
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() { // переводит исключения базы данных
         return new PersistenceExceptionTranslationPostProcessor();
     }
+
+    public HibernatePropertiesCustomizer hibernatePropertiesCustomizer() {
+        return new HibernatePropertiesCustomizer() {
+            @Override
+            public void customize(Map<String, Object> hibernateProperties) {
+                hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+                hibernateProperties.put("hibernate.show_sql", "true");
+                hibernateProperties.put("hibernate.format_sql", "true");
+                hibernateProperties.put("hibernate.hbm2ddl.auto", "update");
+                hibernateProperties.put("hibernate.jdbc.time_zone", "UTC");
+            }
+        };
+    }
+
+
 }
 

@@ -19,7 +19,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
-@Table
+@Table(name = "users")
 @Data
 @Builder
 @NoArgsConstructor
@@ -71,6 +71,66 @@ public class User implements UserDetails {
                 .collect(Collectors.toList());
     }
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Set<Task> getCreated() {
+        return created;
+    }
+
+    public void setCreated(Set<Task> created) {
+        this.created = created;
+    }
+
+    public Set<Task> getAssignedTask() {
+        return assignedTask;
+    }
+
+    public void setAssignedTask(Set<Task> assignedTask) {
+        this.assignedTask = assignedTask;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
 
     @Override
     public String getUsername() {

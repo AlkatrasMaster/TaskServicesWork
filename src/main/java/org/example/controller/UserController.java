@@ -1,7 +1,8 @@
 package org.example.controller;
 
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.dto.UserDTO;
 import org.example.exception.UserNotFoundException;
 import org.example.model.User;
@@ -52,8 +53,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/users")
 @PreAuthorize("authenticated")
-@Slf4j
 public class UserController {
+    private static final Logger log = LogManager.getLogger(UserController.class);
     private final UserService userService;
 
     @Autowired
